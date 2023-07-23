@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechIndustry - Home</title>
+</head>
+<body>
+<h1>TechIndustry</h1>
+<form id="nameForm" action="/sales" method="post">
+    <label for="sellerName">Enter your name:</label>
+    <input type="text" id="sellerName" name="sellerName" required>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
+
+<script>
+    // JavaScript function to handle form submission
+    document.getElementById('nameForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get the seller name input value
+        var sellerName = document.getElementById('sellerName').value;
+
+        // Append the sellerName as a query parameter in the URL
+        var url = '/sales?sellerName=' + encodeURIComponent(sellerName);
+
+        // Redirect to the sales page
+        window.location.href = url;
+    });
+</script>
+
